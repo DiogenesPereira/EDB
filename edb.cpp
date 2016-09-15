@@ -4,7 +4,7 @@
 using namespace std;
 
 void selection_vetor(int vetor[], int tam);
-void gerar_valor(int vetor, int max);
+void gerar_valor(int *vetor, int max);
 void bubble_vetor(int vetor[], int tam);
 
 int main ()
@@ -58,6 +58,17 @@ void selection_vetor(int vetor[], int tam)
 //=====================================================
 void bubble_vetor(int vetor[], int tam)
 {
-	int i, aux;
-	for (i = 0; i< tam; i++)
+	int i, j, aux;
+	for (i = 0; i < tam; i++)
+	{
+		for (j = 0; i < tam; j++)
+		{
+			if (vetor[j] > vetor[j+1])
+			{
+				aux = vetor[j];
+				vetor[j] = vetor[j+1];
+				vetor[j+1] = aux;
+			}
+		}
+	}
 }

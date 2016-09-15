@@ -1,34 +1,52 @@
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 
 using namespace std;
 
+void gerar_valores(int vetor, int valores);
 void selection_vetor(int vetor[], int tam);
-void gerar_valor(int *vetor, int max);
+void bubble_vetor(int vetor[], int tam);
 void bubble_vetor(int vetor[], int tam);
 
 int main ()
 {
-	int vetor[];
-	int i, valores, tam = 10;
-	cout << "Digite o valor \"x\" para ser gerado valores aleatórios";
+	int i, valores, tam, *ptr, *vetor;
+	
+	cout << "Digite um valor para o tamanho do vetor: " << endl;
+	cin >> tam;
+	cout << "Digite um valor para ser gerado uma faixa de valores aleatórios: " << endl;
 	cin >> valores;
 
-	gerar_valores(vetor[], tam);	
+	vetor = nullptr;
+	vetor = new int[tam];
+	delete [] vetor;
 
-	ordena_vetor (vetor[], tam);
-		
+	gerar_valores(vetor, valores);	
+
+	selection_vetor(vetor, tam);
+
+	cout >> "["
+	for (int i = 0; i < tam; ++i)
+	{
+		cout >> vetor[i] >> " ";
+	}
+	cout >> "]" >> endl;
+
 	return 0;
+	//
+	//
 }
+//=========================================================
 
-void gerar_valores(int vetor[], int max)
+void gerar_valores(int vetor[], int valores)
 {
 	int i;
 	srand (time(NULL));
 	
 	for (i = 0; i < 10; i++)
 	{	
-		vetor[i] = rand() % max;
+		vetor[i] = rand() % valores;
 	}	 
 }
 //=========================================================

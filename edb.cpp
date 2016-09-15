@@ -7,6 +7,7 @@ using namespace std;
 void gerar_valores(int* vetor, int valores);
 void selection_vetor(int vetor[], int tam);
 void bubble_vetor(int vetor[], int tam);
+void InsertionSort(int vetor[], int tam);
 
 
 int main ()
@@ -24,7 +25,8 @@ int main ()
 	gerar_valores(vetor, valores);	
 
 	selection_vetor(vetor, tam);
-	bubble_vetor(vetor, tam);	
+	bubble_vetor(vetor, tam);
+	InsertionSort(vetor, tam);	
 
 	cout << "[";
 	for (int i = 0; i < tam; ++i)
@@ -80,7 +82,7 @@ void bubble_vetor(int vetor[], int tam)
 	int i, j, aux;
 	for (i = 0; i < tam; i++)
 	{
-		for (j = 0; i < tam; j++)
+		for (j = 0; j < tam; j++)
 		{
 			if (vetor[j] > vetor[j+1])
 			{
@@ -89,5 +91,24 @@ void bubble_vetor(int vetor[], int tam)
 				vetor[j+1] = aux;
 			}
 		}
+	}
+}
+//=====================================================
+void InsertionSort(int vetor[], int tam)
+{
+	int i, j, aux;
+
+	for (i = 1; i < tam; i++)
+	{
+		aux = vetor[i];
+		j = i - 1;
+
+		while ((j >= 0) && (aux < vetor[j]))
+		{
+			vetor[j + 1] = vetor[j];
+            		j = j - 1;
+		}
+    
+		vetor[j + 1] = aux;
 	}
 }

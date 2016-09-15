@@ -4,10 +4,10 @@
 
 using namespace std;
 
-void gerar_valores(int vetor, int valores);
+void gerar_valores(int* vetor, int valores);
 void selection_vetor(int vetor[], int tam);
 void bubble_vetor(int vetor[], int tam);
-void bubble_vetor(int vetor[], int tam);
+
 
 int main ()
 {
@@ -20,22 +20,23 @@ int main ()
 
 	vetor = nullptr;
 	vetor = new int[tam];
-	delete [] vetor;
 
 	gerar_valores(vetor, valores);	
 
 	selection_vetor(vetor, tam);
+	bubble_vetor(vetor, tam);	
 
-	cout >> "["
+	cout << "[";
 	for (int i = 0; i < tam; ++i)
 	{
-		cout >> vetor[i] >> " ";
+		cout << vetor[i] << " ";
 	}
-	cout >> "]" >> endl;
+	cout << "]" << endl;	
+
+	delete [] vetor;
+	vetor = nullptr;
 
 	return 0;
-	//
-	//
 }
 //=========================================================
 
